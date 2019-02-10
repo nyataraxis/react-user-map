@@ -12,6 +12,9 @@ export class UsersMapContainer extends Component {
     super();
     this.handleRefresh = this.handleRefresh.bind(this);
   }
+  componentDidUpdate() {
+      this.handleRefresh();
+  }
   componentDidMount() {
     this.map = new Map({
       target: "map",
@@ -32,7 +35,7 @@ export class UsersMapContainer extends Component {
     this.map.addLayer(this.vectorLayer);
   }
   handleRefresh() {
-      console.log('refresh');
+    console.log("refresh");
     this.vectorSource = new VectorSource({
       features: new GeoJSON().readFeatures(this.props.features)
     });
@@ -42,7 +45,6 @@ export class UsersMapContainer extends Component {
     return (
       <div>
         <div id="map" />
-        <button onClick={this.handleRefresh} />
       </div>
     );
   }
