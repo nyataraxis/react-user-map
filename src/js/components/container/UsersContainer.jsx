@@ -31,7 +31,7 @@ export class UsersContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    users: state.users.slice(0, 10)
+    users: state.users.slice(0, 300)
   };
 }
 export default connect(
